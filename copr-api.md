@@ -2,6 +2,9 @@
 title: Fedora Copr JSON API
 ---
 
+<!-- vim: syn=markdown
+-->
+
 ## API Notes
 
 There is some documentation on the
@@ -173,7 +176,7 @@ It has 3 possible fields (bolded fields are required):
 According to [this file](https://git.fedorahosted.org/cgit/copr.git/tree/coprs_frontend/coprs/models.py#n64)
 in the source code, only "proven" users can set `memory` and `timeout`, but it
 is unclear how to determine whether or not a given user is "proven" or how to
-obtain that status, or whether that is even currently checked.
+obtain that status.
 
 A valid, example request is this:
 
