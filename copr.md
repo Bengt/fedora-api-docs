@@ -34,6 +34,10 @@ lacking examples and also a bit out of date.
   probably send the proper `Accept: application/json` header anyway, in case
   this functionality changes in the future.
 
+* It does, however, require a `Content-Type: application/json`, at least for
+  POST requests. Failure to send this will result in an `error` value of
+  "This field is required."
+
 * A malformed request usually results in a **500** error being thrown by Copr
   in addition to this being in the response: `"output": "notok"`. Occasionally,
   there will be an `error` key with useful information, although this seems to
