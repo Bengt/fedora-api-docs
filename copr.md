@@ -127,7 +127,7 @@ A valid, example request is this:
 This endpoint creates a new copr project belonging to `[username]`. It requires
 a `name` and at least one chroot.
 
-Chroots are selected by listing them as **actual form fields** in the request,
+Chroots are selected by listing them as **actual JSON fields** in the request,
 with the value `y`.
 
 A valid, example request is this:
