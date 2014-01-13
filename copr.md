@@ -11,6 +11,11 @@ There is some documentation on the
 [copr site](http://copr.fedoraproject.org/api), but I have found it to be
 lacking examples and also a bit out of date.
 
+### Implementations
+
+* [Haskell](https://github.com/CodeBlock/copr-hs)
+* [Python](https://git.fedorahosted.org/cgit/copr.git/tree/copr_cli/subcommands.py) (reference, CLI app)
+
 ### Accessing the API
 
 #### General Information

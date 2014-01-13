@@ -10,6 +10,12 @@ title: Fedora Packages JSON API
 Fedora Packages provides a JSON API, but it's not documented. This document
 provides some notes which may be useful to anyone ever looking to use the API.
 
+### Implementations
+
+* [Python](http://pkgwat.readthedocs.org/en/latest/) (reference)
+* [Ruby](https://github.com/daviddavis/pkgwat)
+* [Scala](https://github.com/CodeBlock/pkgwat-scala)
+
 ### Accessing the API
 
 #### General Information
