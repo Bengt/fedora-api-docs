@@ -303,15 +303,15 @@ The endpoint for listing **updates** submitted to **Bodhi** is
             "bugs": [
                 {
                     "bz_id": 578958,
-                    "parent": False,
-                    "security": False,
+                    "parent": false,
+                    "security": false,
                     "title": "[abrt] crash in ccze-0.2.1-5.fc12: Process \
 /usr/bin/ccze was killed by signal 11"
                 },
                 {
                     "bz_id": 612866,
-                    "parent": False,
-                    "security": False,
+                    "parent": false,
+                    "security": false,
                     "title": "[abrt] crash in ccze-0.2.1-5.fc12: \
 parse_opt: Process /usr/bin/ccze was killed by signal 11 (SIGSEGV)"
                 }],
@@ -322,13 +322,13 @@ parse_opt: Process /usr/bin/ccze was killed by signal 11 (SIGSEGV)"
                 {
                     "committers": ["hubbitus"],
                     "name": "ccze",
-                    "suggest_reboot": False
+                    "suggest_reboot": false
                 }
             }],
-            "close_bugs": True,
+            "close_bugs": true,
             "comments": [
                 {
-                    "anonymous": False,
+                    "anonymous": false,
                     "author": "bodhi",
                     "group": null,
                     "karma": 0,
@@ -338,7 +338,7 @@ testing by hubbitus. ",
                     "update_title": "ccze-0.2.1-6.el5"
                 },
                 {
-                    "anonymous": False,
+                    "anonymous": false,
                     "author": "bodhi",
                     "group": null,
                     "karma": 0,
@@ -347,7 +347,7 @@ testing by hubbitus. ",
                     "update_title": "ccze-0.2.1-6.el5"
                 },
                 {
-                    "anonymous": False,
+                    "anonymous": false,
                     "author": "bodhi",
                     "group": null,
                     "karma": 0,
@@ -357,7 +357,7 @@ testing and can be pushed to stable now if the maintainer wishes",
                     "update_title": "ccze-0.2.1-6.el5"
                 },
                 {
-                    "anonymous": False,
+                    "anonymous": false,
                     "author": "bodhi",
                     "group": null,
                     "karma": 0,
@@ -367,7 +367,7 @@ stable by hubbitus. ",
                     "update_title": "ccze-0.2.1-6.el5"
                 },
                 {
-                    "anonymous": False,
+                    "anonymous": false,
                     "author": "bodhi",
                     "group": null,
                     "karma": 0,
@@ -375,8 +375,8 @@ stable by hubbitus. ",
                     "timestamp": "2010-08-25 18:54:46",
                     "update_title": "ccze-0.2.1-6.el5"
                 }],
-            "critpath": False,
-            "critpath_approved": True,
+            "critpath": false,
+            "critpath_approved": true,
             "date_modified": null,
             "date_pushed": "2010-08-10 17:23:39",
             "date_submitted": "2010-08-10 07:29:56",
@@ -387,7 +387,7 @@ stable by hubbitus. ",
             {
                 "dist_tag": "dist-5E-epel",
                 "id_prefix": "FEDORA-EPEL",
-                "locked": False,
+                "locked": false,
                 "long_name": "Fedora EPEL 5",
                 "name": "EL-5"
             },
