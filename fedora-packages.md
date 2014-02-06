@@ -105,28 +105,28 @@ An **example request** looks like this:
 
 ```json
 {
-    u 'rows': [
+    'rows': [
         {
-            u 'description': u 'Python API for pkgwat',
-            u 'devel_owner': u 'ralph',
-            u 'icon': u 'package_128x128',
-            u 'link': u 'python-pkgwat-api',
-            u 'name': u 'python-pkgwat-api',
-            u 'sub_pkgs': [
+            'description': 'Python API for pkgwat',
+            'devel_owner': 'ralph',
+            'icon': 'package_128x128',
+            'link': 'python-pkgwat-api',
+            'name': 'python-pkgwat-api',
+            'sub_pkgs': [
                 {
-                    u 'description': u 'Python API for pkgwat',
-                    u 'icon': u 'package_128x128',
-                    u 'link': u 'python3-python-pkgwat-api',
-                    u 'name': u 'python3-python-pkgwat-api',
-                    u 'summary': u 'Python API for querying the packages webapp'
+                    'description': 'Python API for pkgwat',
+                    'icon': 'package_128x128',
+                    'link': 'python3-python-pkgwat-api',
+                    'name': 'python3-python-pkgwat-api',
+                    'summary': 'Python API for querying the packages webapp'
         }],
-            u 'summary': u 'Python API for querying the packages webapp',
-            u 'upstream_url': u 'http://pypi.python.org/pypi/pkgwat.api'
+            'summary': 'Python API for querying the packages webapp',
+            'upstream_url': 'http://pypi.python.org/pypi/pkgwat.api'
     }],
-    u 'rows_per_page': 10,
-    u 'start_row': 0,
-    u 'total_rows': 1,
-    u 'visible_rows': 1
+    'rows_per_page': 10,
+    'start_row': 0,
+    'total_rows': 1,
+    'visible_rows': 1
 }
 ```
 
@@ -143,41 +143,41 @@ The endpoint for looking up **releases** is
 
 ```json
 {
-    u 'rows': [
+    'rows': [
         {
-            u 'release': u 'Rawhide',
-            u 'stable_version': u '3.4.3-27.fc18',
-            u 'testing_version': u 'Not Applicable'
+            'release': 'Rawhide',
+            'stable_version': '3.4.3-27.fc18',
+            'testing_version': 'Not Applicable'
         },
         {
-            u 'release': u 'Fedora 18',
-            u 'stable_version': u '3.4.3-27.fc18',
-            u 'testing_version': u 'None'
+            'release': 'Fedora 18',
+            'stable_version': '3.4.3-27.fc18',
+            'testing_version': 'None'
         },
         {
-            u 'release': u 'Fedora 17',
-            u 'stable_version': u '3.4.3-26.fc17',
-            u 'testing_version': u 'None'
+            'release': 'Fedora 17',
+            'stable_version': '3.4.3-26.fc17',
+            'testing_version': 'None'
         },
         {
-            u 'release': u 'Fedora 16',
-            u 'stable_version': u '3.4.3-25.fc15',
-            u 'testing_version': u 'None'
+            'release': 'Fedora 16',
+            'stable_version': '3.4.3-25.fc15',
+            'testing_version': 'None'
         },
         {
-            u 'release': u 'Fedora EPEL 6',
-            u 'stable_version': u 'None',
-            u 'testing_version': u 'None'
+            'release': 'Fedora EPEL 6',
+            'stable_version': 'None',
+            'testing_version': 'None'
         },
         {
-            u 'release': u 'Fedora EPEL 5',
-            u 'stable_version': u '3.4.3-12.el5.1',
-            u 'testing_version': u 'None'
+            'release': 'Fedora EPEL 5',
+            'stable_version': '3.4.3-12.el5.1',
+            'testing_version': 'None'
         }],
-    u 'rows_per_page': 10,
-    u 'start_row': 0,
-    u 'total_rows': 6,
-    u 'visible_rows': 6
+    'rows_per_page': 10,
+    'start_row': 0,
+    'total_rows': 6,
+    'visible_rows': 6
 }
 ```
 
@@ -204,67 +204,67 @@ Although this representation is unfortunate, this is a great place to employ sum
 
 ```json
  {
-     u 'rows': [
+     'rows': [
          {
-             u 'build_id': 332286,
-             u 'completion_time': u '2012-07-19 04:01:20.495063',
-             u 'completion_time_display':
+             'build_id': 332286,
+             'completion_time': '2012-07-19 04:01:20.495063',
+             'completion_time_display':
              {
-                 u 'elapsed': u '4 minutes',
-                 u 'time': u '04:01 AM UTC',
-                 u 'when': u '27 days ago'
+                 'elapsed': '4 minutes',
+                 'time': '04:01 AM UTC',
+                 'when': '27 days ago'
              },
-             u 'completion_ts': 1342670480.49506,
-             u 'creation_event_id': 4896507,
-             u 'creation_time': u '2012-07-19 03:57:20.152193',
-             u 'creation_ts': 1342670240.15219,
-             u 'epoch': None,
-             u 'name': u 'ccze',
-             u 'nvr': u 'ccze-0.2.1-10.fc18',
-             u 'owner_id': 131,
-             u 'owner_name': u 'ausil',
-             u 'package_id': 8962,
-             u 'package_name': u 'ccze',
-             u 'release': u '10.fc18',
-             u 'state': 1,
-             u 'state_str': u 'complete',
-             u 'task_id': 4250727,
-             u 'version': u '0.2.1',
-             u 'volume_id': 0,
-             u 'volume_name': u 'DEFAULT'
+             'completion_ts': 1342670480.49506,
+             'creation_event_id': 4896507,
+             'creation_time': '2012-07-19 03:57:20.152193',
+             'creation_ts': 1342670240.15219,
+             'epoch': null,
+             'name': 'ccze',
+             'nvr': 'ccze-0.2.1-10.fc18',
+             'owner_id': 131,
+             'owner_name': 'ausil',
+             'package_id': 8962,
+             'package_name': 'ccze',
+             'release': '10.fc18',
+             'state': 1,
+             'state_str': 'complete',
+             'task_id': 4250727,
+             'version': '0.2.1',
+             'volume_id': 0,
+             'volume_name': 'DEFAULT'
          },
          {
-             u 'build_id': 298617,
-             u 'completion_time': u '2012-02-10 13:15:51.600556',
-             u 'completion_time_display':
+             'build_id': 298617,
+             'completion_time': '2012-02-10 13:15:51.600556',
+             'completion_time_display':
              {
-                 u 'elapsed': u '3 minutes',
-                 u 'time': u '01:15 PM UTC',
-                 u 'when': u '6 months ago'
+                 'elapsed': '3 minutes',
+                 'time': '01:15 PM UTC',
+                 'when': '6 months ago'
              },
-             u 'completion_ts': 1328879751.60056,
-             u 'creation_event_id': 4407860,
-             u 'creation_time': u '2012-02-10 13:12:44.186579',
-             u 'creation_ts': 1328879564.18658,
-             u 'epoch': None,
-             u 'name': u 'ccze',
-             u 'nvr': u 'ccze-0.2.1-9.fc18',
-             u 'owner_id': 1374,
-             u 'owner_name': u 'ppisar',
-             u 'package_id': 8962,
-             u 'package_name': u 'ccze',
-             u 'release': u '9.fc18',
-             u 'state': 1,
-             u 'state_str': u 'complete',
-             u 'task_id': 3778561,
-             u 'version': u '0.2.1',
-             u 'volume_id': 0,
-             u 'volume_name': u 'DEFAULT'
+             'completion_ts': 1328879751.60056,
+             'creation_event_id': 4407860,
+             'creation_time': '2012-02-10 13:12:44.186579',
+             'creation_ts': 1328879564.18658,
+             'epoch': null,
+             'name': 'ccze',
+             'nvr': 'ccze-0.2.1-9.fc18',
+             'owner_id': 1374,
+             'owner_name': 'ppisar',
+             'package_id': 8962,
+             'package_name': 'ccze',
+             'release': '9.fc18',
+             'state': 1,
+             'state_str': 'complete',
+             'task_id': 3778561,
+             'version': '0.2.1',
+             'volume_id': 0,
+             'volume_name': 'DEFAULT'
          }],
-     u 'rows_per_page': 2,
-     u 'start_row': 0,
-     u 'total_rows': 15,
-     u 'visible_rows': 2
+     'rows_per_page': 2,
+     'start_row': 0,
+     'total_rows': 15,
+     'visible_rows': 2
  }
 ```
 
@@ -290,134 +290,134 @@ The endpoint for listing **updates** submitted to **Bodhi** is
 
 ```json
 {
-    u 'rows': [
+    'rows': [
     {
-        u 'actions': '',
-        u 'date_pushed': u '10 Aug 2010',
-        u 'date_pushed_display': u '2 years ago',
-        u 'date_submitted_display': u '2 years ago',
-        u 'details': u '10 Aug 2010',
-        u 'dist_updates': [
+        'actions': '',
+        'date_pushed': '10 Aug 2010',
+        'date_pushed_display': '2 years ago',
+        'date_submitted_display': '2 years ago',
+        'details': '10 Aug 2010',
+        'dist_updates': [
         {
-            u 'approved': None,
-            u 'bugs': [
+            'approved': null,
+            'bugs': [
                 {
-                    u 'bz_id': 578958,
-                    u 'parent': False,
-                    u 'security': False,
-                    u 'title': u '[abrt] crash in ccze-0.2.1-5.fc12: Process \
+                    'bz_id': 578958,
+                    'parent': False,
+                    'security': False,
+                    'title': '[abrt] crash in ccze-0.2.1-5.fc12: Process \
 /usr/bin/ccze was killed by signal 11'
                 },
                 {
-                    u 'bz_id': 612866,
-                    u 'parent': False,
-                    u 'security': False,
-                    u 'title': u '[abrt] crash in ccze-0.2.1-5.fc12: \
+                    'bz_id': 612866,
+                    'parent': False,
+                    'security': False,
+                    'title': '[abrt] crash in ccze-0.2.1-5.fc12: \
 parse_opt: Process /usr/bin/ccze was killed by signal 11 (SIGSEGV)'
                 }],
-            u 'builds': [
+            'builds': [
             {
-                u 'nvr': u 'ccze-0.2.1-6.el5',
-                u 'package':
+                'nvr': 'ccze-0.2.1-6.el5',
+                'package':
                 {
-                    u 'committers': [u 'hubbitus'],
-                    u 'name': u 'ccze',
-                    u 'suggest_reboot': False
+                    'committers': ['hubbitus'],
+                    'name': 'ccze',
+                    'suggest_reboot': False
                 }
             }],
-            u 'close_bugs': True,
-            u 'comments': [
+            'close_bugs': True,
+            'comments': [
                 {
-                    u 'anonymous': False,
-                    u 'author': u 'bodhi',
-                    u 'group': None,
-                    u 'karma': 0,
-                    u 'text': u 'This update has been submitted for \
+                    'anonymous': False,
+                    'author': 'bodhi',
+                    'group': null,
+                    'karma': 0,
+                    'text': 'This update has been submitted for \
 testing by hubbitus. ',
-                    u 'timestamp': u '2010-08-10 07:30:07',
-                    u 'update_title': u 'ccze-0.2.1-6.el5'
+                    'timestamp': '2010-08-10 07:30:07',
+                    'update_title': 'ccze-0.2.1-6.el5'
                 },
                 {
-                    u 'anonymous': False,
-                    u 'author': u 'bodhi',
-                    u 'group': None,
-                    u 'karma': 0,
-                    u 'text': u 'This update has been pushed to testing',
-                    u 'timestamp': u '2010-08-10 17:55:25',
-                    u 'update_title': u 'ccze-0.2.1-6.el5'
+                    'anonymous': False,
+                    'author': 'bodhi',
+                    'group': null,
+                    'karma': 0,
+                    'text': 'This update has been pushed to testing',
+                    'timestamp': '2010-08-10 17:55:25',
+                    'update_title': 'ccze-0.2.1-6.el5'
                 },
                 {
-                    u 'anonymous': False,
-                    u 'author': u 'bodhi',
-                    u 'group': None,
-                    u 'karma': 0,
-                    u 'text': u 'This update has reached 14 days in \
+                    'anonymous': False,
+                    'author': 'bodhi',
+                    'group': null,
+                    'karma': 0,
+                    'text': 'This update has reached 14 days in \
 testing and can be pushed to stable now if the maintainer wishes',
-                    u 'timestamp': u '2010-08-24 23:06:30',
-                    u 'update_title': u 'ccze-0.2.1-6.el5'
+                    'timestamp': '2010-08-24 23:06:30',
+                    'update_title': 'ccze-0.2.1-6.el5'
                 },
                 {
-                    u 'anonymous': False,
-                    u 'author': u 'bodhi',
-                    u 'group': None,
-                    u 'karma': 0,
-                    u 'text': u 'This update has been submitted for \
+                    'anonymous': False,
+                    'author': 'bodhi',
+                    'group': null,
+                    'karma': 0,
+                    'text': 'This update has been submitted for \
 stable by hubbitus. ',
-                    u 'timestamp': u '2010-08-25 08:00:11',
-                    u 'update_title': u 'ccze-0.2.1-6.el5'
+                    'timestamp': '2010-08-25 08:00:11',
+                    'update_title': 'ccze-0.2.1-6.el5'
                 },
                 {
-                    u 'anonymous': False,
-                    u 'author': u 'bodhi',
-                    u 'group': None,
-                    u 'karma': 0,
-                    u 'text': u 'This update has been pushed to stable',
-                    u 'timestamp': u '2010-08-25 18:54:46',
-                    u 'update_title': u 'ccze-0.2.1-6.el5'
+                    'anonymous': False,
+                    'author': 'bodhi',
+                    'group': null,
+                    'karma': 0,
+                    'text': 'This update has been pushed to stable',
+                    'timestamp': '2010-08-25 18:54:46',
+                    'update_title': 'ccze-0.2.1-6.el5'
                 }],
-            u 'critpath': False,
-            u 'critpath_approved': True,
-            u 'date_modified': None,
-            u 'date_pushed': u '2010-08-10 17:23:39',
-            u 'date_submitted': u '2010-08-10 07:29:56',
-            u 'karma': 0,
-            u 'nagged': None,
-            u 'notes': '',
-            u 'release':
+            'critpath': False,
+            'critpath_approved': True,
+            'date_modified': null,
+            'date_pushed': '2010-08-10 17:23:39',
+            'date_submitted': '2010-08-10 07:29:56',
+            'karma': 0,
+            'nagged': null,
+            'notes': '',
+            'release':
             {
-                u 'dist_tag': u 'dist-5E-epel',
-                u 'id_prefix': u 'FEDORA-EPEL',
-                u 'locked': False,
-                u 'long_name': u 'Fedora EPEL 5',
-                u 'name': u 'EL-5'
+                'dist_tag': 'dist-5E-epel',
+                'id_prefix': 'FEDORA-EPEL',
+                'locked': False,
+                'long_name': 'Fedora EPEL 5',
+                'name': 'EL-5'
             },
-            u 'release_name': u 'Fedora EPEL 5',
-            u 'request': None,
-            u 'stable_karma': 3,
-            u 'status': u 'stable',
-            u 'submitter': u 'hubbitus',
-            u 'title': u 'ccze-0.2.1-6.el5',
-            u 'type': u 'bugfix',
-            u 'unstable_karma': -3,
-            u 'updateid': u 'FEDORA-EPEL-2010-3205',
-            u 'version': u '0.2.1-6.el5'
+            'release_name': 'Fedora EPEL 5',
+            'request': null,
+            'stable_karma': 3,
+            'status': 'stable',
+            'submitter': 'hubbitus',
+            'title': 'ccze-0.2.1-6.el5',
+            'type': 'bugfix',
+            'unstable_karma': -3,
+            'updateid': 'FEDORA-EPEL-2010-3205',
+            'version': '0.2.1-6.el5'
         }],
-        u 'id': u 'ccze-0.2.1-6.el5',
-        u 'karma_level': u 'meh',
-        u 'karma_str': u ' 0',
-        u 'name': u 'ccze',
-        u 'nvr': u 'ccze-0.2.1-6.el5',
-        u 'package_name': u 'ccze',
-        u 'releases': [u 'Fedora EPEL 5'],
-        u 'request_id': u 'ccze021-6el5',
-        u 'status': u 'stable',
-        u 'title': u 'ccze-0.2.1-6.el5',
-        u 'versions': [u '0.2.1-6.el5']
+        'id': 'ccze-0.2.1-6.el5',
+        'karma_level': 'meh',
+        'karma_str': ' 0',
+        'name': 'ccze',
+        'nvr': 'ccze-0.2.1-6.el5',
+        'package_name': 'ccze',
+        'releases': ['Fedora EPEL 5'],
+        'request_id': 'ccze021-6el5',
+        'status': 'stable',
+        'title': 'ccze-0.2.1-6.el5',
+        'versions': ['0.2.1-6.el5']
     }],
-    u 'rows_per_page': 10,
-    u 'start_row': 0,
-    u 'total_rows': 2,
-    u 'visible_rows': 1
+    'rows_per_page': 10,
+    'start_row': 0,
+    'total_rows': 2,
+    'visible_rows': 1
 }
 ```
 
