@@ -231,16 +231,16 @@ It has 3 possible fields (bolded fields are required):
 - **`pkgs`** - A space-separated list of URLs, which are .src.rpms, downloadable
   for building.
 - `memory` - How much memory should be alloted to the build.
-    - This ([appears](https://git.fedorahosted.org/cgit/copr.git/tree/coprs_frontend/coprs/constants.py)
+    - This ([appears](https://git.fedorahosted.org/cgit/copr.git/tree/frontend/coprs_frontend/coprs/constants.py)
       as though it) should be supplied in MB, with an upper bound of 4096 and a
       lower bound of 2048. Default is 2048.
 - `timeout` - Timeout for the build (units?)
-    - This ([appears](https://git.fedorahosted.org/cgit/copr.git/tree/coprs_frontend/coprs/constants.py) 
+    - This ([appears](https://git.fedorahosted.org/cgit/copr.git/tree/frontend/coprs_frontend/coprs/constants.py)
       as though it) should be supplied in seconds with a lower bound of 1 and
       an upper bound of 36000 (i.e., 10 hours). It appears as though 0 disables
       this feature (?).
 
-According to [this file](https://git.fedorahosted.org/cgit/copr.git/tree/coprs_frontend/coprs/models.py#n64)
+According to [this file](https://git.fedorahosted.org/cgit/copr.git/tree/frontend/coprs_frontend/coprs/models.py#n24)
 in the source code, only "proven" users can set `memory` and `timeout`, but it
 is unclear how to determine whether or not a given user is "proven" or how to
 obtain that status.
