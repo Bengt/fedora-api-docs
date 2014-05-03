@@ -8,7 +8,7 @@ title: Fedora Copr JSON API
 ## API Notes
 
 There is some documentation on the
-[copr site](http://copr.fedoraproject.org/api), but I have found it to be
+[copr site](https://copr.fedoraproject.org/api), but I have found it to be
 lacking examples and also a bit out of date.
 
 ### Implementations
@@ -21,7 +21,7 @@ lacking examples and also a bit out of date.
 #### Quick Start Guide
 
 * The global JSON endpoint is
-  `http://copr.fedoraproject.org/api/coprs/`
+  `https://copr.fedoraproject.org/api/coprs/`
 
 * Several endpoints require authentication (which uses
   [basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)).
@@ -69,8 +69,8 @@ which should be available in nearly any HTTP library.
 
 To obtain credentials, you must:
 
-- [Log in](http://copr.fedoraproject.org/login) to Copr.
-- Navigate to the [API](http://copr.fedoraproject.org/api) page.
+- [Log in](https://copr.fedoraproject.org/login) to Copr.
+- Navigate to the [API](https://copr.fedoraproject.org/api) page.
 - Click the **Generate a new token** button.
 
 You will see a block on the page that looks like this:
@@ -91,7 +91,7 @@ becomes the "password".
 Using httpie, an authenticated request should look something like this, given
 the above example:
 
-`http --auth abcde:12345 GET http://copr.fedoraproject.org/api/coprs/janedoe/`
+`http --auth abcde:12345 GET https://copr.fedoraproject.org/api/coprs/janedoe/`
 
 #### Endpoints
 
@@ -120,7 +120,7 @@ This (unauthenticated) endpoint lists all copr projects belonging to
 
 A valid, example request is this:
 
-`http GET http://copr.fedoraproject.org/api/coprs/codeblock/`
+`http GET https://copr.fedoraproject.org/api/coprs/codeblock/`
 
 ...which yields a response in the form of:
 
@@ -199,7 +199,7 @@ with the value `y`.
 
 A valid, example request is this:
 
-`http  --auth login:token POST http://copr.fedoraproject.org/api/coprs/codeblock/new/ name=testproject fedora-20-x86_64=y fedora-rawhide-i386=y`
+`http  --auth login:token POST https://copr.fedoraproject.org/api/coprs/codeblock/new/ name=testproject fedora-20-x86_64=y fedora-rawhide-i386=y`
 
 ...which yields a response in the form of:
 
@@ -247,7 +247,7 @@ obtain that status.
 
 A valid, example request is this:
 
-`http  --auth login:token POST http://copr.fedoraproject.org/api/coprs/codeblock/testproject/new_build/ pkgs='http://kojipkgs.fedoraproject.org//packages/dmtcp/2.1/1.fc20/src/dmtcp-2.1-1.fc20.src.rpm'`
+`http  --auth login:token POST https://copr.fedoraproject.org/api/coprs/codeblock/testproject/new_build/ pkgs='https://kojipkgs.fedoraproject.org//packages/dmtcp/2.1/1.fc20/src/dmtcp-2.1-1.fc20.src.rpm'`
 
 ...which yields a response in the form of:
 
@@ -267,7 +267,7 @@ This endpoint provides information about the current status of the given build.
 
 A valid, example request is this:
 
-`http --auth login:token GET http://copr.fedoraproject.org/api/coprs/build_status/1017/`
+`http --auth login:token GET https://copr.fedoraproject.org/api/coprs/build_status/1017/`
 
 ...which yields a response in the form of:
 
@@ -290,7 +290,7 @@ the given build.
 
 A valid, example request is this:
 
-`http GET http://copr.fedoraproject.org/api/coprs/build_detail/1017/`
+`http GET https://copr.fedoraproject.org/api/coprs/build_detail/1017/`
 
 ...which yields a response in the form of:
 
@@ -314,7 +314,7 @@ This endpoint allows an authorized user to cancel a build.
 
 A valid, example request is this:
 
-`http  --auth login:token GET http://copr.fedoraproject.org/api/coprs/cancel_build/1017/`
+`http  --auth login:token GET https://copr.fedoraproject.org/api/coprs/cancel_build/1017/`
 
 ...which yields a response in the form of:
 
@@ -342,7 +342,7 @@ It has 3 possible fields, none of which are required:
 
 A valid, example request is this:
 
-`http  --auth login:token POST http://copr.fedoraproject.org/api/coprs/codeblock/evalso/modify/ description='new description' instructions='Install this project by doing X, Y, and Z.'`
+`http  --auth login:token POST https://copr.fedoraproject.org/api/coprs/codeblock/evalso/modify/ description='new description' instructions='Install this project by doing X, Y, and Z.'`
 
 ...which yields a response in the form of:
 
@@ -368,7 +368,7 @@ It has 1 possible field.
 - `buildroot_pkgs` - Additional packages to always exist in minimal buildroot.
 A valid, example request is this:
 
-`http  --auth login:token POST http://copr.fedoraproject.org/api/coprs/codeblock/evalso/modify/fedora-20-x86_64 buildroot_pages=firefox`
+`http  --auth login:token POST https://copr.fedoraproject.org/api/coprs/codeblock/evalso/modify/fedora-20-x86_64 buildroot_pages=firefox`
 
 ...which yields a response in the form of:
 
@@ -390,7 +390,7 @@ belonging to a copr project.
 
 A valid, example request is this:
 
-`http GET http://copr.fedoraproject.org/api/coprs/codeblock/evalso/detail/fedora-20-x86_64/`
+`http GET https://copr.fedoraproject.org/api/coprs/codeblock/evalso/detail/fedora-20-x86_64/`
 
 ...which yields a response in the form of:
 
