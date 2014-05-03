@@ -18,7 +18,7 @@ lacking examples and also a bit out of date.
 
 ### Accessing the API
 
-#### General Information
+#### Quick Start Guide
 
 * The global JSON endpoint is
   `http://copr.fedoraproject.org/api/coprs/`
@@ -29,6 +29,11 @@ lacking examples and also a bit out of date.
   which do not require it will simply ignore it.
     * This makes it easier to go about writing API clients without having to
       handle a lot of special cases.
+
+* A distinction is made between between **username** and **login** fields.
+  See the "Authentication" section below.
+
+* Tokens expire after 180 days. (What happens when they expire?)
 
 * All endpoints require a trailing slash (`/`) on them. Otherwise, Copr will
   generate a redirect which must be handled by your HTTP client (and also
@@ -93,9 +98,16 @@ the above example:
 There are currently endpoints to:
 
 - List someone's copr projects
+- Get details about a copr project
 - Create a new copr project\*
 - Add a new build\*
 - Query a build's status\*
+- Get details about a specific build
+- Cancel build\*
+- Modify a copr project\*
+- Modify a chroot\*
+- Get details about a chroot
+- Search for a copr project
 
 `*` denotes required authentication.
 
@@ -108,7 +120,7 @@ This (unauthenticated) endpoint lists all copr projects belonging to
 
 A valid, example request is this:
 
-`http GET http://coprfedoraproject.org/api/coprs/codeblock/`
+`http GET http://copr.fedoraproject.org/api/coprs/codeblock/`
 
 ...which yields a response in the form of:
 
@@ -118,14 +130,60 @@ A valid, example request is this:
     "repos": [
         {
             "additional_repos": "", 
-            "description": "Repository for unofficially packaged http://eval.so/ dependencies. It is my intention that these will one day become official Fedora packages. Most packages here are programming related.", 
-            "instructions": "See individual repos at https://github.com/eval-so/ for instructions, or http://eval.so/api for instructions on using the hosted API.", 
-            "name": "evalso", 
+            "description": "Provides builds of [Facebook's Watchman](https://github.com/facebook/watchman/) for Fedora and EPEL.", 
+            "instructions": "`yum install watchman # :)`", 
+            "name": "watchman", 
             "yum_repos": {
-                "fedora-20-x86_64": "http://copr-be.cloud.fedoraproject.org/results/codeblock/evalso/fedora-20-x86_64/"
+                "epel-6-i386": "http://copr-be.cloud.fedoraproject.org/results/codeblock/watchman/epel-6-i386/", 
+                "epel-6-x86_64": "http://copr-be.cloud.fedoraproject.org/results/codeblock/watchman/epel-6-x86_64/", 
+                "epel-7-x86_64": "http://copr-be.cloud.fedoraproject.org/results/codeblock/watchman/epel-7-x86_64/", 
+                "fedora-19-i386": "http://copr-be.cloud.fedoraproject.org/results/codeblock/watchman/fedora-19-i386/", 
+                "fedora-19-x86_64": "http://copr-be.cloud.fedoraproject.org/results/codeblock/watchman/fedora-19-x86_64/", 
+                "fedora-20-i386": "http://copr-be.cloud.fedoraproject.org/results/codeblock/watchman/fedora-20-i386/", 
+                "fedora-20-x86_64": "http://copr-be.cloud.fedoraproject.org/results/codeblock/watchman/fedora-20-x86_64/", 
+                "fedora-rawhide-i386": "http://copr-be.cloud.fedoraproject.org/results/codeblock/watchman/fedora-rawhide-i386/", 
+                "fedora-rawhide-x86_64": "http://copr-be.cloud.fedoraproject.org/results/codeblock/watchman/fedora-rawhide-x86_64/"
             }
+        }, 
+        {
+            "additional_repos": "", 
+            "description": "", 
+            "instructions": "", 
+            "name": "haskell-infra", 
+            "yum_repos": {
+                "epel-6-x86_64": "http://copr-be.cloud.fedoraproject.org/results/codeblock/haskell-infra/epel-6-x86_64/"
+            }
+        }, 
+        ...
+}
+```
+
+##### Get details about a copr project
+
+`GET /api/coprs/[username]/[copr_name]/detail/`
+
+This (unauthenticated) endpoint provides details about a specific copr project.
+
+A valid, example request is this:
+
+`http GET https://copr.fedoraproject.org/api/coprs/codeblock/evalso/detail/`
+
+...which yields a response in the form of:
+
+```json
+{
+    "detail": {
+        "additional_repos": "", 
+        "description": "Repository for unofficially packaged http://eval.so/ dependencies. It is my intention that these will one day become official Fedora packages. Most packages here are programming related.", 
+        "instructions": "See individual repos at https://github.com/eval-so/ for instructions, or http://eval.so/api for instructions on using the hosted API.", 
+        "last_modified": 1398434752, 
+        "name": "evalso", 
+        "yum_repos": {
+            "fedora-20-i386": "http://copr-be.cloud.fedoraproject.org/results/codeblock/evalso/fedora-20-i386/", 
+            "fedora-20-x86_64": "http://copr-be.cloud.fedoraproject.org/results/codeblock/evalso/fedora-20-x86_64/"
         }
-    ]
+    }, 
+    "output": "ok"
 }
 ```
 
@@ -201,7 +259,7 @@ A valid, example request is this:
 }
 ```
 
-##### Query a build's status
+##### Query a build's status\*
 
 `GET /api/coprs/build_status/[build_id]/`
 
@@ -220,5 +278,152 @@ A valid, example request is this:
 }
 ```
 
-The `status` field [will be](https://git.fedorahosted.org/cgit/copr.git/tree/coprs_frontend/coprs/models.py#n262)
+The `status` field [will be](https://git.fedorahosted.org/cgit/copr.git/tree/frontend/coprs_frontend/coprs/models.py#n277)
 one of "failed", "running", "pending", or "succeeded".
+
+##### Get details about a specific build
+
+`GET /api/coprs/build_detail/[build_id]/`
+
+This (unauthenticated) endpoint provides detailed about the current status of
+the given build.
+
+A valid, example request is this:
+
+`http GET http://copr.fedoraproject.org/api/coprs/build_detail/1017/`
+
+...which yields a response in the form of:
+
+```json
+{
+    "output": "ok", 
+    "owner": "codeblock", 
+    "project": "testproject", 
+    "status": "succeeded"
+}
+```
+
+The `status` field [will be](https://git.fedorahosted.org/cgit/copr.git/tree/frontend/coprs_frontend/coprs/models.py#n277)
+one of "failed", "running", "pending", or "succeeded".
+
+##### Cancel build\*
+
+`GET /api/coprs/cancel_build/[build_id]/`
+
+This endpoint allows an authorized user to cancel a build.
+
+A valid, example request is this:
+
+`http  --auth login:token GET http://copr.fedoraproject.org/api/coprs/cancel_build/1017/`
+
+...which yields a response in the form of:
+
+```json
+{
+    "status": "Build canceled",
+    "output": "ok"
+}
+```
+
+The `status` field [will be](https://git.fedorahosted.org/cgit/copr.git/tree/frontend/coprs_frontend/coprs/models.py#n277)
+one of "failed", "running", "pending", or "succeeded".
+
+##### Modify a copr project\*
+
+`POST /api/coprs/[username]/[copr_name]/modify/`
+
+This endpoint allows an authorized user to modify a copr's metadata.
+
+It has 3 possible fields, none of which are required:
+
+- `description` - A brief description of the project.
+- `instructions` - How to install the project, etc.
+- `repos` - A **space-separated** list of additional yum repos to use during builds.
+
+A valid, example request is this:
+
+`http  --auth login:token POST http://copr.fedoraproject.org/api/coprs/codeblock/evalso/modify/ description='new description' instructions='Install this project by doing X, Y, and Z.'`
+
+...which yields a response in the form of:
+
+```json
+{
+    "description": new description", 
+    "instructions": "Install this project by doing X, Y, and Z.", 
+    "output": "ok", 
+    "repos": ""
+}
+```
+
+##### Modify a chroot\*
+
+`POST /api/coprs/[username]/[copr_name]/modify/[chroot_name]/`
+
+This endpoint allows an authorized user to modify a specific chroot in a copr
+project.
+
+It has 1 possible field.
+**WARNING: If you don't pass it, it will set `buildroot_pkgs` to `null`.**
+
+- `buildroot_pkgs` - Additional packages to always exist in minimal buildroot.
+A valid, example request is this:
+
+`http  --auth login:token POST http://copr.fedoraproject.org/api/coprs/codeblock/evalso/modify/fedora-20-x86_64 buildroot_pages=firefox`
+
+...which yields a response in the form of:
+
+```json
+{
+    "buildroot_pkgs": "firefox", 
+    "output": "ok"
+}
+```
+
+##### Get details about a chroot
+
+`GET /api/coprs/[username]/[copr_name]/detail/[chroot_name]/`
+
+This (unauthenticated) endpoint provides information about a specific chroot
+belonging to a copr project.
+
+(It seems to only provide buildroot_pkgs).
+
+A valid, example request is this:
+
+`http GET http://copr.fedoraproject.org/api/coprs/codeblock/evalso/detail/fedora-20-x86_64/`
+
+...which yields a response in the form of:
+
+```json
+{
+    "buildroot_pkgs": null, 
+    "output": "ok"
+}
+```
+
+##### Search for a copr project
+
+`GET /api/coprs/search/[project]/`
+
+This (unauthenticated) endpoint allows you to search copr projects.
+
+A valid, example request is this:
+
+`http GET https://copr.fedoraproject.org/api/coprs/search/watchman/`
+
+...which yields a response in the form of:
+
+```json
+{
+    "output": "ok", 
+    "repos": [
+        {
+            "coprname": "watchman", 
+            "description": "Provides builds of [Facebook's Watchman](https://github.com/facebook/watchman/) for Fedora and EPEL.", 
+            "username": "codeblock"
+        }
+    ]
+}
+```
+
+A search yielding no results causes `repos` to be `[]` (the empty list).
